@@ -38,9 +38,8 @@
 #![no_std]
 use soroban_sdk::{contract, contracterror, contractimpl, contracttype, Env};
 
-// ---------------------------------------------------------------------------
+
 // Contract Errors
-// ---------------------------------------------------------------------------
 
 /// All error codes the contract can return.
 ///
@@ -70,9 +69,8 @@ pub enum ContractError {
     InsufficientBalance = 1202,
 }
 
-// ---------------------------------------------------------------------------
+
 // Storage Keys
-// ---------------------------------------------------------------------------
 
 /// Keys used to address values in instance storage.
 ///
@@ -92,9 +90,8 @@ pub enum DataKey {
     Flags = 7,
 }
 
-// ---------------------------------------------------------------------------
+
 // Contract
-// ---------------------------------------------------------------------------
 
 #[contract]
 pub struct PrimitiveTypesContract;
@@ -127,7 +124,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 1 — Unsigned Integer Operations (u32)
+    // Section 1 — Unsigned Integer Operations (u32)
     //
     // u32 is a 32-bit unsigned integer (0 … 4_294_967_295).
     // Good for: small counters, array indices, flag bitmasks, ledger sequence
@@ -170,7 +167,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 1 — Unsigned Integer Operations (u64)
+    // Section 1 — Unsigned Integer Operations (u64)
     //
     // u64 is a 64-bit unsigned integer (0 … 18_446_744_073_709_551_615).
     // Good for: timestamps (`env.ledger().timestamp()` returns u64), large
@@ -201,7 +198,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 1 — Signed Integer Operations (i32)
+    // Section 1 — Signed Integer Operations (i32)
     //
     // i32 is a 32-bit signed integer (-2_147_483_648 … 2_147_483_647).
     // Good for: differences, temperatures, relative positions, error codes.
@@ -234,7 +231,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 1 — Signed Integer Operations (i64)
+    // Section 1 — Signed Integer Operations (i64)
     //
     // i64 is a 64-bit signed integer.
     // Good for: large signed counters, price deltas, signed timestamps.
@@ -264,7 +261,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 2 — Boolean Operations
+    // Section 2 — Boolean Operations
     //
     // `bool` is the simplest type in the set: it can only be `true` or
     // `false`.  Soroban serialises it natively, so booleans cost no extra
@@ -313,7 +310,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 3 — Type Conversions
+    // Section 3 — Type Conversions
     //
     // Rust requires *explicit* casts between integer types.  The rules are:
     //
@@ -406,7 +403,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 4 — Overflow Handling
+    // Section 4 — Overflow Handling
     //
     // Rust natively offers three families of overflow-aware operations:
     //
@@ -505,7 +502,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 5a — Financial Calculations (i128)
+    // Section 5a — Financial Calculations (i128)
     //
     // Soroban's token interface (`soroban_sdk::token`) expresses all amounts
     // as `i128`.  This avoids the ambiguity of using two u64 fields or
@@ -621,7 +618,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 5b — Bit Operations
+    // Section 5b — Bit Operations
     //
     // Integers double as compact flag stores.  A single `u32` can hold 32
     // independent boolean flags at 1 bit each.
@@ -699,7 +696,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 5c — Counter and Flag Management (stored state)
+    // Section 5c — Counter and Flag Management (stored state)
     // -----------------------------------------------------------------------
 
     /// Increment the stored counter by 1.  Returns `OverflowError` if the
@@ -800,7 +797,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 5d — Comparison and Clamping
+    // Section 5d — Comparison and Clamping
     // -----------------------------------------------------------------------
 
     /// Three-way comparison of two `u32` values.
@@ -853,7 +850,7 @@ impl PrimitiveTypesContract {
     }
 
     // -----------------------------------------------------------------------
-    // § 5e — Storage Helpers
+    // Section 5e — Storage Helpers
     // -----------------------------------------------------------------------
 
     /// Persist a `u32` value in instance storage.

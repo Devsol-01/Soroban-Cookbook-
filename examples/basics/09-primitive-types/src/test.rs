@@ -8,9 +8,8 @@
 use super::*;
 use soroban_sdk::Env;
 
-// ---------------------------------------------------------------------------
-// § 1 — Unsigned Integer Operations (u32)
-// ---------------------------------------------------------------------------
+
+// Section 1 — Unsigned Integer Operations (u32)
 
 #[test]
 fn test_u32_add_normal() {
@@ -85,9 +84,8 @@ fn test_u32_div_by_zero() {
     client.div_u32(&20, &0);
 }
 
-// ---------------------------------------------------------------------------
-// § 1 — Unsigned Integer Operations (u64)
-// ---------------------------------------------------------------------------
+
+// Section 1 — Unsigned Integer Operations (u64)
 
 #[test]
 fn test_u64_add_normal() {
@@ -129,9 +127,8 @@ fn test_u64_div_by_zero() {
     client.div_u64(&20, &0);
 }
 
-// ---------------------------------------------------------------------------
-// § 1 — Signed Integer Operations (i32)
-// ---------------------------------------------------------------------------
+
+// Section 1 — Signed Integer Operations (i32)
 
 #[test]
 fn test_i32_add_normal() {
@@ -185,9 +182,8 @@ fn test_i32_div_by_zero() {
     client.div_i32(&20, &0);
 }
 
-// ---------------------------------------------------------------------------
-// § 1 — Signed Integer Operations (i64)
-// ---------------------------------------------------------------------------
+
+// Section 1 — Signed Integer Operations (i64)
 
 #[test]
 fn test_i64_add_normal() {
@@ -220,9 +216,8 @@ fn test_i64_mul_and_div() {
     assert_eq!(client.div_i64(&-20, &5), -4i64);
 }
 
-// ---------------------------------------------------------------------------
-// § 2 — Boolean Operations
-// ---------------------------------------------------------------------------
+
+// Section 2 — Boolean Operations
 
 #[test]
 fn test_bool_logic() {
@@ -262,9 +257,8 @@ fn test_bool_storage_round_trip() {
     assert!(!client.get_bool());
 }
 
-// ---------------------------------------------------------------------------
-// § 3 — Type Conversions
-// ---------------------------------------------------------------------------
+
+// Section 3 — Type Conversions
 
 #[test]
 fn test_widening_conversions_always_succeed() {
@@ -385,9 +379,8 @@ fn test_i64_to_u64_negative() {
     client.i64_to_u64(&-1i64);
 }
 
-// ---------------------------------------------------------------------------
-// § 4 — Overflow Handling
-// ---------------------------------------------------------------------------
+
+// Section 4 — Overflow Handling
 
 #[test]
 fn test_checked_arithmetic_happy_path() {
@@ -469,9 +462,8 @@ fn test_wrapping_arithmetic() {
     );
 }
 
-// ---------------------------------------------------------------------------
-// § 5a — Financial Calculations (i128)
-// ---------------------------------------------------------------------------
+
+// Section 5a — Financial Calculations (i128)
 
 #[test]
 fn test_simple_interest_calculations() {
@@ -533,9 +525,8 @@ fn test_deposit_negative_amount() {
     client.deposit(&-100);
 }
 
-// ---------------------------------------------------------------------------
-// § 5b — Bit Operations
-// ---------------------------------------------------------------------------
+
+// Section 5b — Bit Operations
 
 #[test]
 fn test_bitwise_logic() {
@@ -584,9 +575,8 @@ fn test_bit_manipulation() {
     assert_eq!(client.toggle_bit(&0b1010, &1), 0b1000u32);
 }
 
-// ---------------------------------------------------------------------------
-// § 5c — Counter and Flag Management
-// ---------------------------------------------------------------------------
+
+// Section 5c — Counter and Flag Management
 
 #[test]
 fn test_counter_increment_decrement() {
@@ -641,9 +631,8 @@ fn test_flag_out_of_range() {
     client.is_flag_set(&32);
 }
 
-// ---------------------------------------------------------------------------
-// § 5d — Comparisons and Clamping
-// ---------------------------------------------------------------------------
+
+// Section 5d — Comparisons and Clamping
 
 #[test]
 fn test_u32_three_way_compare() {
@@ -695,9 +684,8 @@ fn test_clamp() {
     assert_eq!(client.clamp_i32(&-100, &-50, &-10), -50i32);
 }
 
-// ---------------------------------------------------------------------------
-// § 5e — Storage Helpers and Initialization
-// ---------------------------------------------------------------------------
+
+// Section 5e — Storage Helpers and Initialization
 
 #[test]
 fn test_store_and_retrieve_all_types() {
