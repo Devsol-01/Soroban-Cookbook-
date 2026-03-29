@@ -145,10 +145,8 @@ impl EventFilteringContract {
     /// Off-chain: filter `topic_1 == "sale"` to get all marketplace sales,
     /// or narrow to a specific seller/buyer via topic_2/topic_3.
     pub fn record_sale(env: Env, seller: Address, buyer: Address, price: i128, token_id: u64) {
-        env.events().publish(
-            (NS, ACT_SALE, seller, buyer),
-            SaleData { price, token_id },
-        );
+        env.events()
+            .publish((NS, ACT_SALE, seller, buyer), SaleData { price, token_id });
     }
 
     /// **Status-change event** — encodes transition in data, entity in topics.
